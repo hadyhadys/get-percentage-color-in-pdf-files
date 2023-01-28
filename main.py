@@ -4,11 +4,6 @@ from pdf2image import convert_from_path
 # Store Pdf with convert_from_path function
 images = convert_from_path('file.pdf')
 
-list_white_percent = []
-list_black_percent = []
-list_greyscale_percent = []
-list_non_greyscale_percent = []
-
 for i in range(len(images)):
 
 	# Save pages as images in the pdf
@@ -50,12 +45,8 @@ for i in range(len(images)):
     greyscale_percent = (greyscale_pixels / total_pixels) * 100
     non_greyscale_percent = (non_greyscale_pixels / total_pixels) * 100
 
-    list_black_percent.append(black_percent)
-    list_white_percent.append(white_percent)
-    list_greyscale_percent.append(greyscale_percent)
-    list_non_greyscale_percent.append(non_greyscale_percent)
-
-print("\n")
-print("White: {:.2f}%".format(sum(list_white_percent)))
-print("Greyscale: {:.2f}%".format(sum(list_black_percent)+sum(list_greyscale_percent)))
-print("Other Color: {:.2f}%".format(sum(list_non_greyscale_percent)))
+    print(f"Page {i+1}:")
+    print("White: {:.2f}%".format(white_percent))
+    print("Greyscale: {:.2f}%".format(black_percent+greyscale_percent))
+    print("Other Color: {:.2f}%".format(non_greyscale_percent))
+    print("\n")

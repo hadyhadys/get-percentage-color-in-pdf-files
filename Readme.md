@@ -9,7 +9,7 @@ Install `poppler` agar bisa Convert PDF ke Images
 
 Linux
 ```
-sudo apt-get install poppler
+sudo apt install poppler-utils
 ```
 
 Mac
